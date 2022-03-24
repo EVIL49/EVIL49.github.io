@@ -4045,9 +4045,8 @@ figure {
 }
 
 figure figcaption {
-  background: #e3e3e3;
   padding: 10px 12px 12px;
-  color: #333;
+  color: #fff;
   text-align: center;
   font-size: 13px;
   /*  width:100%;   */
