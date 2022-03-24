@@ -1,0 +1,139 @@
+<!DOCTYPE HTML>
+<!--
+	Forty by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Undergraduates - EvIL</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a href="index.html" class="logo"><strong>Evolutionary Informatics Lab</strong> <span>at UNC Charlotte</span></a>
+						<nav>
+							<a href="#menu">Menu</a>
+						</nav>
+					</header>
+
+				<!-- Menu -->
+					<nav id="menu">
+						<ul class="links">
+							<li><a href="index.html">Home</a></li>
+							<li><a href="meetings.html">Lab Meetings</a></li>
+							<li><a href="lab.html">Working in the Lab</a></li>
+							<li><a href="software.html">Software</a></li>
+							<li><a href="tutorials.html">Tutorials</a></li>
+							<li><a href="funding.html">Funding Opportunities</a></li>
+							<li><a href="conferences.html">Conferences</a></li>
+							<li><a href="writing.html">Writing Tips</a></li>
+							<li><a href="inventory.html">Inventory and Ordering</a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- One -->
+							<section id="one">
+								<div class="inner">
+									<header class="major">
+										<h1>An upstart's guide to blast</h1>
+										<h2>These are fast steps to run NCBI BLAST</h2>
+									</header>
+									<figure> <img src="images/manchester.jpg" alt="" />
+									<figcaption>BLAST is an algorithm and program for comparing primary biological sequence information, such as the amino-acid sequences of proteins or the nucleotides of DNA and/or RNA sequences</figcaption></figure>
+									
+									<p><h2>Installation</h2></p>
+									<p>To start you need to install NCBI's Blast program - Blast(p) for protein, Blast(n) for nucleotide </p>
+									<ol>
+									<li><p> <a href="https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/", target = "_blank">You can access software here https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/ </a> </p></li>
+									<li><p> You need Blast(p) for protein </p></li>
+									<li><p> Blast(n) for nucleotide</p></li>
+									<li><p>Download ncbi-blast-2.13.0+-win64.exe (or whatever distribution is for your machine), run and install</p></li>
+									<ul>
+										<li><p>or non-executable distribution and install through terminal</p></li>
+									</ul>
+									<li><p>Verify installation by using terminal, enter blastp, should say something in return regarding BLAST</p></li>
+									</ol>
+									<ul class="actions">
+												<li><a href="https://blast.ncbi.nlm.nih.gov/Blast.cgi" target="_blank" class="button">NCBI BLAST PAGE</a></li>
+									</ul>
+								</div>
+							</section>
+				<!-- Three -->
+							<section>
+
+									<div class="inner">
+											<header class="major">
+												<h2>(LOCAL) Download a database</h2>
+											</header>
+											<p>Download a database, in this example we will use swissprot: </p>
+											<pre style="text-align: left; white-space: pre-line;"><code>update_blastdb.pl --showall</code> </pre>
+											In terminal will print a list of all available databases
+											<pre style="text-align: left; white-space: pre-line;"><code>update_blastdb.pl --decompress swissprot</code> </pre>
+											Will download swissprot database and decompress the file
+										
+									</div>
+							</section>
+
+							<section>
+									<div class="inner">
+											<header class="major">
+												<h2>(LOCAL) Navigate to data directory, use blastP to search for proteins</h2>
+											</header>
+											<p>Download a database, in this example we will use swissprot: </p>
+											<pre style="text-align: left; white-space: pre-line;"><code>Blastp -db swissprot -query dog_tlrs.txt -out myfile2.tab</code> </pre>
+											<p> Here you are calling Blastp <br> Using the swissprot database with the -db flag <br> Providing a query list of sequences used to acquire hits from a database<br> and generating an output file called myfile2.tab<br> You need to navigate to output file (-out) and analyze results <br> Note that you can limit your search by using -taxidlist</p>
+											<ul class="actions">
+												<li><a href=" https://www.ncbi.nlm.nih.gov/books/NBK569846/" target="_blank" class="button">More information</a></li>
+											</ul>
+									</div>
+							</section>
+
+							<section>
+									<div class="inner">
+											<header class="major">
+												<h2>(REMOTE) Submit a remote query to NCBI</h2>
+											</header>
+											<p>You can also search a remote database as follows with the -remote flag </p>
+											<pre style="text-align: left; white-space: pre-line;"><code>Blastp -db nr -query dog_tlrs.txt -out myfile2.tab -remote</code> </pre>
+											<p>Will perform your search. Here you are calling blastp <br> Using the swissprot database with the -db flag <br> Providing a query list of sequences used to acquire hits from a database<br> and generating an output file called myfile2.tab<br> You need to navigate to output file (-out) and analyze results <br> Note that you can limit your search by using -taxidlist <br> Additionally please note that some parameters aren't designed to work remotely</p>
+									</div>
+							</section>
+
+							<section>
+									<div class="inner">
+											<header class="major">
+												<h2>(WEB) Blastp in Web Browser</h2>
+											</header>
+											<p>You can also perfom blast searches in your browser, though try to limit this to small searches </p>
+											<ul class="actions">
+												<li><a href="https://blast.ncbi.nlm.nih.gov/Blast.cgi?PAGE=Proteins" target="_blank" class="button">BLAST on the web</a></li>
+											</ul>
+									</div>
+							</section>
+					</div>
+			</div>
+
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
