@@ -65,5 +65,62 @@
                                 <p> As scientists we constantly need to modify or develop software in order to better analyze our data. 
                                 As our team develops new tools or tweaks existing programs to do useful things, we will be updating this 
                                     page to contribute to the growing body of bioinformatic software. </p>
+									<div id="main" class="wrapper style1">
+										<div class="container">
+											
+					
+											<header class="minor" >
+												<h2>Manual for Trinity</h2>
+												<p>This is a walkthrough of Trinity broken into two main sections</p>
+											</header>
+					
+										<div class="custom_bold"><p> Trinity, developed at the Broad Institute and the Hebrew University of Jerusalem, represents a novel method for the efficient and robust de novo reconstruction of transcriptomes from RNA-seq data. Trinity combines three independent software modules: Inchworm, Chrysalis, and Butterfly, applied sequentially to process large volumes of RNA-seq reads. Trinity partitions the sequence data into many individual de Bruijn graphs, each representing the transcriptional complexity at a given gene or locus, and then processes each graph independently to extract full-length splicing isoforms and to tease apart transcripts derived from paralogous genes. Briefly, the process works like so:
+					
+											<ul>
+											
+											<li>Inchworm assembles the RNA-seq data into the unique sequences of transcripts, often generating full-length transcripts for a dominant isoform, but then reports just the unique portions of alternatively spliced transcripts.</li>
+											
+					
+											<li>Chrysalis clusters the Inchworm contigs into clusters and constructs complete de Bruijn graphs for each cluster. Each cluster represents the full transcriptonal complexity for a given gene (or sets of genes that share sequences in common). Chrysalis then partitions the full read set among these disjoint graphs.</li>
+											
+											<li>
+												Butterfly then processes the individual graphs in parallel, tracing the paths that reads and pairs of reads take within the graph, ultimately reporting full-length transcripts for alternatively spliced isoforms, and teasing apart transcripts that corresponds to paralogous genes.
+											</li>
+										</ul></p> <br></div>
+									<!-- Main -->
+									<section id="main" class="EVwrapper style2">
+					
+										<div class="title">Part 1</div>
+										<div class="EVcontainer">
+											<h3><p><strong>Required commands</strong></p></h3>
+											<div style="width: 100%;">
+												<div style="width: 15%; height: 200px; float: left;"> 
+													<code>
+														--seqType &lt;string&gt;  <br>
+														--max_memory &lt;string&gt; <br>
+														If paired reads: <br>
+															&emsp; --left &lt;string&gt; <br>
+															&emsp; --right &lt;string&gt; <br>
+														If unpaired reads: <br>
+														&emsp; --single &lt;string&gt; <br>
+														Or, <br>
+														&emsp; --samples_file &lt;string&gt; <br>
+													</code>
+												</div>
+												<div style="margin-left: 15%; height: 200px;"> 
+													<code>
+														:type of reads: ('fa' or 'fq') <br>
+														:suggested max memory to use by Trinity where limiting can be enabled. (jellyfish, sorting, etc)
+					#                            provided in Gb of RAM, ie.  '--max_memory 10G' <br><br>
+														:left reads, one or more file names (separated by commas, no spaces) <br>
+														:right reads, one or more file names (separated by commas, no spaces) <br> <br>
+														:single reads, one or more file names, comma-delimited (note, if single file contains pairs, can use flag: --run_as_paired ) <br><br>
+														tab-delimited text file indicating biological replicate relationships.
+					
+													</code>
+													
+												</div>
+											</div>
+											
                             </div>
                         </section>
